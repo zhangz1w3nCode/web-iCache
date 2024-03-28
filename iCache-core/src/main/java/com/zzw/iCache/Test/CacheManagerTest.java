@@ -23,5 +23,6 @@ public class CacheManagerTest {
         cache.put("key1",new ProductInfo("1" , "测试商品1", 20));
 
         System.out.println(cache.get("key1"));
+        System.out.println(cache.get("key2"));
     }
 }
