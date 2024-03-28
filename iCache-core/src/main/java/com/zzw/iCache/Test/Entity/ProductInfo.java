@@ -1,4 +1,4 @@
-package com.zzw.iCache.Entity;
+package com.zzw.iCache.Test.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductInfo {
-    private String skuSn;
-    private String productName;
-    private String productDesc;
+    private String id;
+    private String name;
+    private int price;
 }

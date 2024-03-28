@@ -4,7 +4,7 @@ import com.zzw.iCache.Cache.Cache;
 import com.zzw.iCache.CacheConfig.CacheConfig;
 import com.zzw.iCache.CacheManager.CacheManager;
 import com.zzw.iCache.CacheManager.implement.CacheManagerImp;
-import com.zzw.iCache.Entity.ProductInfo;
+import com.zzw.iCache.Test.Entity.ProductInfo;
 
 import java.util.ArrayList;
 

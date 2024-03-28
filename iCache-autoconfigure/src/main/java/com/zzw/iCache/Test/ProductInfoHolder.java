@@ -1,7 +1,7 @@
 package com.zzw.iCache.Test;
 
 import com.zzw.iCache.Cache.Cache;
-import com.zzw.iCache.Entity.ProductInfo;
+import com.zzw.iCache.Test.Entity.ProductInfo;
 import com.zzw.iCache.annocation.iCache;
 import org.springframework.stereotype.Component;
 

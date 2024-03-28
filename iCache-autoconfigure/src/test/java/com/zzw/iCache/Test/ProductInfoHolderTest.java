@@ -1,7 +1,7 @@
 package com.zzw.iCache.Test;
 
 import com.zzw.iCache.Application;
-import com.zzw.iCache.Entity.ProductInfo;
+import com.zzw.iCache.Test.Entity.ProductInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
