@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductInfoHolder {
-
     @iCache("productCache")
     Cache<ProductInfo> productInfoCache;
 

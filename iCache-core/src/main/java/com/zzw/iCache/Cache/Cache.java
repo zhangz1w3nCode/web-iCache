@@ -5,7 +5,6 @@ package com.zzw.iCache.Cache;
  * @param <V>
  */
 public interface Cache<V>{
-
     V get(String key);
 
     void put(String key, V value);

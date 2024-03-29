@@ -24,7 +24,6 @@ public class CacheWrapperImpl<V> implements Cache<V> {
         if (valueWrapper == null) {
             return null;
         }
-
         valueWrapper.updateAccessTime();
         return valueWrapper.getData();
     }

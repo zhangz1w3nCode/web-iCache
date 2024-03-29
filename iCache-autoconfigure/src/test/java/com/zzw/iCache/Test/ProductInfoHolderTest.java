@@ -14,10 +14,8 @@ public class ProductInfoHolderTest {
 
     @Test
     public void testPut() {
-
         productInfoHolder.put("1",new ProductInfo("1","iphone11","苹果手机"));
         ProductInfo productInfo = productInfoHolder.get("1");
-
         System.out.println(productInfo);
     }
 }
