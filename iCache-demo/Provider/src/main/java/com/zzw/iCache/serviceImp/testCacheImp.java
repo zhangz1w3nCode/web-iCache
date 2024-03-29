@@ -3,6 +3,7 @@ package com.zzw.iCache.serviceImp;
 
 import com.zzw.iCache.Cache.Cache;
 import com.zzw.iCache.Entity.ProductInfo;
+import com.zzw.iCache.RealCache.valueWrapper.ValueWrapper;
 import com.zzw.iCache.TestFacade;
 import com.zzw.iCache.annocation.iCache;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Component;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @Component
 @Service(version = "1.0.0")
@@ -26,8 +29,10 @@ public class testCacheImp implements TestFacade {
     public Object put(ProductInfo productInfo) {
         //使用skuSn加今天的时间的年月日作为key
         //获取当前年月日作为字符串
-        String currenDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
-        String key = productInfo.getSkuSn() + "_" + currenDate;;
+        //获取一个uuid作为key：
+        String uuid = UUID.randomUUID().toString();
+
+        String key = productInfo.getSkuSn() + new SimpleDateFormat("yyyyMMdd").format(new Date())+uuid;
         productInfoCache.put(key, productInfo);
         //把key和value打印出来，方便查看
         log.info("key:{},value:{}", key, productInfo);
@@ -39,5 +44,12 @@ public class testCacheImp implements TestFacade {
         ProductInfo productInfo = productInfoCache.get(key);
         log.info("key:{},value:{}", key, productInfo);
         return productInfo;
+    }
+
+    @Override
+    public List<ValueWrapper<ProductInfo>> getAllValues() {
+        List<ValueWrapper<ProductInfo>> valueList = productInfoCache.getValues();
+        log.info("valueList:{}",valueList);
+        return valueList;
     }
 }

@@ -2,6 +2,8 @@ package com.zzw.iCache.RealCache;
 
 import com.zzw.iCache.RealCache.valueWrapper.ValueWrapper;
 
+import java.util.List;
+
 /**
  * 真正缓存的接口
  * @param <V>
@@ -12,4 +14,5 @@ public interface RealCache<V>{
 
     void put(String key, V value);
 
+    List<ValueWrapper<V>> getValues();
 }

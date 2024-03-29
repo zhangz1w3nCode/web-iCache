@@ -6,7 +6,12 @@ import com.zzw.iCache.CacheConfig.CacheConfig;
 import com.zzw.iCache.CacheConstant.CacheConstant;
 import com.zzw.iCache.RealCache.RealCache;
 import com.zzw.iCache.RealCache.valueWrapper.ValueWrapper;
+import org.apache.dubbo.common.utils.CollectionUtils;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -61,5 +66,17 @@ public class CaffeineCache<V> implements RealCache<V>, CacheConstant {
     @Override
     public void put(String key, V value) {
         cache.put(key, new ValueWrapper<>(value));
+    }
+
+    @Override
+    public List<ValueWrapper<V>> getValues() {
+
+        Collection<ValueWrapper<V>> values = cache.asMap().values();
+
+        if(CollectionUtils.isNotEmpty(values)){
+            return new ArrayList<>(values);
+        }
+
+        return Collections.emptyList();
     }
 }

@@ -3,6 +3,10 @@ package com.zzw.iCache.Cache.implement;
 import com.zzw.iCache.Cache.Cache;
 import com.zzw.iCache.RealCache.RealCache;
 import com.zzw.iCache.RealCache.valueWrapper.ValueWrapper;
+import org.apache.dubbo.common.utils.CollectionUtils;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @Author: zhangyang
@@ -31,5 +35,21 @@ public class CacheWrapperImpl<V> implements Cache<V> {
     @Override
     public void put(String key, V value) {
         realCache.put(key, value);
+    }
+
+    @Override
+    public List<ValueWrapper<V>> getValues() {
+        List<V> allValues = Collections.emptyList();
+
+        List<ValueWrapper<V>> valueWrapperList = realCache.getValues();
+
+//        if (CollectionUtils.isNotEmpty(valueWrapperList)) {
+//            for (ValueWrapper<V> item : valueWrapperList) {
+//                item.updateAccessTime();
+//                allValues.add(item.getData());
+//            }
+//        }
+
+        return valueWrapperList;
     }
 }
