@@ -1,4 +1,4 @@
-package com.zzw.iCache.demo.Consumer.serviceImp;
+package com.zzw.iCache.demo.Provider.serviceImp;
 
 
 import com.zzw.iCache.Cache.Cache;

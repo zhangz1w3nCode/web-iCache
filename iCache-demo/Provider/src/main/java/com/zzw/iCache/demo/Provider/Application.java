@@ -1,4 +1,4 @@
-package com.zzw.iCache.demo.Consumer;
+package com.zzw.iCache.demo.Provider;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
