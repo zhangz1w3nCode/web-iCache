@@ -1,9 +1,8 @@
-package com.zzw.iCache.Test;
+package com.zzw.iCache.demo.Consumer;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import com.zzw.iCache.Entity.ProductInfo;
+import com.zzw.iCache.demo.Api.Entity.ProductInfo;
 import com.zzw.iCache.RealCache.valueWrapper.ValueWrapper;
-import com.zzw.iCache.TestFacade;
+import com.zzw.iCache.demo.Api.TestFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.util.StopWatch;

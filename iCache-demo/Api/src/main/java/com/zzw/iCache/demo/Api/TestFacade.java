@@ -1,8 +1,7 @@
-package com.zzw.iCache;
+package com.zzw.iCache.demo.Api;
 
-import com.zzw.iCache.Entity.ProductInfo;
+import com.zzw.iCache.demo.Api.Entity.ProductInfo;
 import com.zzw.iCache.RealCache.valueWrapper.ValueWrapper;
-import org.springframework.cache.Cache;
 
 import java.util.List;
 

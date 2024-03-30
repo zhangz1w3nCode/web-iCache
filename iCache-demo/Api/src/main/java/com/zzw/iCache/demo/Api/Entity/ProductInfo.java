@@ -1,4 +1,4 @@
-package com.zzw.iCache.Entity;
+package com.zzw.iCache.demo.Api.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
