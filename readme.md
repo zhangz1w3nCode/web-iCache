@@ -18,7 +18,7 @@
        
         6⃣️ Dubbo(对外提供API、泛化调用)
        
-        7⃣️ Zookeeper
+        7⃣️ Zookeeper(注册中心)
        
         8⃣️ Docker(容器化部署以及调试)
 
