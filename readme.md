@@ -1,11 +1,11 @@
 ## iCache💤
 
-### 📌Preview
+### 📌 Preview
         1️⃣ iCache是一款轻量级的缓存管理器 实现对缓存的集中管理、监控、刷新、统计等···
         
         2️⃣ iCache····
 
-### 📌Stack of technology
+### 📌 Technology stack
         1️⃣ Java(反射、SPI、Annotation)
         
         2️⃣ Caffeine
@@ -20,9 +20,9 @@
        
         7⃣️ Zookeeper
        
-        8⃣️ Docker
+        8⃣️ Docker(容器化部署以及调试)
 
-### 📌Content 
+### 📌 Content 
 - [ ] 整体架构
     - [ ] [Chapter1.架构图](https://github.com/zhangz1w3nCode/RedisNote/blob/main/%E5%BC%95%E8%A8%80/%E7%AC%AC1%E7%AB%A0-%E5%BC%95%E8%A8%80%F0%9F%92%AC.md)
 - [ ] 功能拆解
