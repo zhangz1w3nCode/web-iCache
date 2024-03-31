@@ -13,15 +13,13 @@
 
     <packaging>pom</packaging>
     <groupId>com.zzw</groupId>
-    <artifactId>iCache</artifactId>
+    <artifactId>web-iCache</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>iCache</name>
-    <description>iCache</description>
+    <name>web-cache</name>
+    <description>web-cache</description>
 
     <modules>
-        <module>iCache-core</module>
-        <module>iCache-autoconfigure</module>
-        <module>iCache-demo</module>
+        <module>web-cache-core</module>
     </modules>
 
 

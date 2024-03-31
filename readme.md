@@ -1,9 +1,9 @@
-## iCache💤
+## web-iCache💤
 
 ### 📌 Preview
-        1️⃣ iCache是一款轻量级的缓存管理器 实现对缓存的集中管理、监控、刷新、统计等···
+        1️⃣ web-iCache是iCache服务的web端服务 对外提供http接口
         
-        2️⃣ iCache····
+        2️⃣ web-iCache····
 
 ### 📌 Technology stack
         1️⃣ Java(反射、SPI、Annotation)
