@@ -15,7 +15,9 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fd.dubbo.version>1.0.0-RELEASE</fd.dubbo.version>
+        <dubbo.version>2.7.3</dubbo.version>
+        <java.version>8</java.version>
     </properties>
 
 
@@ -26,6 +28,54 @@
             <artifactId>Api</artifactId>
             <version>24.03.31</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-spring-boot-starter</artifactId>
+                    <version>2.7.13</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-dependencies-zookeeper</artifactId>
+                    <version>2.7.13</version>
+                    <type>pom</type>
+                </dependency>
+                <!-- zookeeper -->
+                <dependency>
+                    <groupId>org.apache.zookeeper</groupId>
+                    <artifactId>zookeeper</artifactId>
+                   <version>3.5.8</version>
+                </dependency>
 
         <dependency>
             <groupId>junit</groupId>
