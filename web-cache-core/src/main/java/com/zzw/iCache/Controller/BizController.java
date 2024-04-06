@@ -1,4 +1,4 @@
-package com.zzw.iCache.Test;
+package com.zzw.iCache.Controller;
 
 import com.zzw.iCache.CacheHolder.ProductCacheHolder;
 import com.zzw.iCache.Entity.ProductCacheRequest;
