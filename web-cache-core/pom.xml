@@ -22,14 +22,6 @@
 
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.zzw</groupId>
-            <artifactId>iCache-monitor-api</artifactId>
-            <version>24.04.02</version>
-            <scope>compile</scope>
-        </dependency>
-
         <dependency>
             <groupId>com.zzw</groupId>
             <artifactId>iCache-starter</artifactId>
