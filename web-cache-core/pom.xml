@@ -9,8 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
-    <artifactId>web-cache-core</artifactId>
+    <artifactId>biz-cache-core</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,45 +18,84 @@
         <fd.dubbo.version>1.0.0-RELEASE</fd.dubbo.version>
         <dubbo.version>2.7.3</dubbo.version>
         <java.version>8</java.version>
+
+
+        <!--要设置jar中文件的编码格式-->
+        <!--要设置jar中文件的编码格式-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>23.5.15</revision>
+        <lombok.version>1.18.0</lombok.version>
+        <log4j2.version>2.16.0</log4j2.version>
+        <apollo.version>1.4.0</apollo.version>
+        <jasypt.version>1.16</jasypt.version>
+        <mybatis.version>2.1.2</mybatis.version>
+        <mysql-connector.version>5.1.46</mysql-connector.version>
+        <p6spy.version>3.9.1</p6spy.version>
+        <spring.version>2.2.5.RELEASE</spring.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <cutator.verrsion>4.0.1</cutator.verrsion>
+        <zookeeper.version>3.4.11</zookeeper.version>
+        <frxsframework.version>1.0.5.2</frxsframework.version>
+        <jedis.version>2.9.0</jedis.version>
+        <healthcheck.version>1.2.2-RELEASE</healthcheck.version>
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <mertric.version>2.1.4-RELEASE</mertric.version>
+        <rivers.version>1.5.1-RELEASE</rivers.version>
+        <fd.dubbo.version>1.0.0-RELEASE</fd.dubbo.version>
+        <tracking.api.version>1.0.3-RELEASE</tracking.api.version>
+        <maven-invoker.version>3.2.0</maven-invoker.version>
+        <freeMarker.version>2.3.31</freeMarker.version>
+        <gitlab4j.version>5.2.0</gitlab4j.version>
     </properties>
 
 
     <dependencies>
 
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-test</artifactId>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.zzw</groupId>
-            <artifactId>iCache-monitor-api</artifactId>
-            <version>24.04.02</version>
-            <scope>compile</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <!-- 日志文件管理包 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.zzw</groupId>
-            <artifactId>iCache-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.ben-manes.caffeine</groupId>
-            <artifactId>caffeine</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
@@ -65,24 +104,62 @@
             <version>3.12.0</version>
         </dependency>
 
-                <dependency>
-                    <groupId>org.apache.dubbo</groupId>
-                    <artifactId>dubbo-spring-boot-starter</artifactId>
-                    <version>2.7.13</version>
-                </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>3.0.10</version>
+        </dependency>
 
-                <dependency>
-                    <groupId>org.apache.dubbo</groupId>
-                    <artifactId>dubbo-dependencies-zookeeper</artifactId>
-                    <version>2.7.13</version>
-                    <type>pom</type>
-                </dependency>
-                <!-- zookeeper -->
-                <dependency>
-                    <groupId>org.apache.zookeeper</groupId>
-                    <artifactId>zookeeper</artifactId>
-                   <version>3.5.8</version>
-                </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-dependencies-zookeeper</artifactId>
+            <version>2.7.13</version>
+            <type>pom</type>
+        </dependency>
+        <!-- zookeeper -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.5.8</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.2.5.RELEASE</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.zzw</groupId>-->
+<!--            <artifactId>iCache-starter</artifactId>-->
+<!--            <version>${fastjson.version}</version>-->
+<!--        </dependency>-->
 
 
     </dependencies>
