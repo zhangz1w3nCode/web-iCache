@@ -1,4 +1,4 @@
-package com.zzw.iCache.monitor.dubbo.dubboApi;
+package com.zzw.iCache.monitor;
 
 import java.util.Set;
 
@@ -7,8 +7,6 @@ import java.util.Set;
  * 缓存监控接口
  */
 public interface CacheMonitor {
-
-
 
     /**
       cacheName:定义缓存名称：比如商品缓存

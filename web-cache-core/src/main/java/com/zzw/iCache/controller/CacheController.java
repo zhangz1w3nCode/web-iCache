@@ -3,9 +3,10 @@ import com.zzw.iCache.Utils.StreamUtils;
 import com.zzw.iCache.Utils.WebResult;
 
 import com.zzw.iCache.monitor.dubbo.domain.Provider;
-import com.zzw.iCache.monitor.dubbo.dubboApi.CacheMonitor;
+import com.zzw.iCache.monitor.CacheMonitor;
 import com.zzw.iCache.monitor.dubbo.dubboApi.ProviderService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.registry.Registry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,23 +18,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/cache")
 public class CacheController {
-
-
     @Autowired
     private ProviderService providerService;
 
-
-    /**
-     * 参数说明：
-     * 业务方应用名称
-     * 使用的缓存名称
-     * 业务方服务的ip地址
-     * 要查询的缓存key
-     */
+    @Autowired
+    private Registry registry;
 
     /**
      * 获取应用和提供者列表
      * @return
+     * 参数说明：
+     * 业务方应用名称
+     * 使用的缓存名称
+     *业务方服务的ip地址
+     *要查询的缓存key
      */
     @GetMapping("/applications")
     public WebResult<List<String>> getCacheByCacheName() {

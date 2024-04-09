@@ -1,8 +1,7 @@
 package com.zzw.iCache.monitor.dubbo.dubboUtils;
 
-
 import com.zzw.iCache.monitor.dubbo.domain.Constants;
-import com.zzw.iCache.monitor.dubbo.dubboApi.CacheMonitor;
+import com.zzw.iCache.monitor.CacheMonitor;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.logger.Logger;
 import org.apache.dubbo.common.logger.LoggerFactory;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -51,13 +49,13 @@ public class RegistryServerSync implements InitializingBean, DisposableBean, Not
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        logger.info("SeaDog 启动监听Monitor");
+        logger.info("iCache 启动监听Monitor");
         registry.subscribe(SUBSCRIBE, this);
     }
 
     @Override
     public void destroy() throws Exception {
-        logger.info("SeaDog 关闭监听Monitor");
+        logger.info("iCache 关闭监听Monitor");
         registry.unsubscribe(SUBSCRIBE, this);
     }
 
