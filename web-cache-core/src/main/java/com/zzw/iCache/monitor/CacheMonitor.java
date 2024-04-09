@@ -15,11 +15,6 @@ public interface CacheMonitor {
      Object getCache(String cacheName,String key);
 
      /**
-      * 模拟缓存存入
-     */
-     String putProductCache(String skuSn,String productName,String productDesc);
-
-     /**
      查询某个缓存的所有key
       */
      Set<String> getCacheKeys(String cacheName);
@@ -33,4 +28,6 @@ public interface CacheMonitor {
      查询某个缓存的数据数量
      */
     long cacheSize(String cacheName);
+
+    Set<String> getRefreshName(String cacheName);
 }
