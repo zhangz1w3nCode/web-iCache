@@ -9,6 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+
     <artifactId>web-cache-core</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -154,13 +155,6 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>com.zzw</groupId>-->
-<!--            <artifactId>iCache-starter</artifactId>-->
-<!--            <version>${fastjson.version}</version>-->
-<!--        </dependency>-->
-
 
     </dependencies>
 
