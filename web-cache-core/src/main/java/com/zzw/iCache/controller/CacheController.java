@@ -59,10 +59,10 @@ public class CacheController {
      * @return
      */
     @GetMapping("/applications")
-    public WebResult<List<String>> getCacheByCacheName() {
+    public WebResult<Set<String>> getCacheByCacheName() {
         List<Provider> providerList = providerService.findByService(CacheMonitor.class.getName());
-        List<String> ApplicationSet = StreamUtils.mapAndToList(providerList, Provider::getApplication);
-        return WebResult.success(new ArrayList<>(ApplicationSet));
+        Set<String> ApplicationSet = StreamUtils.mapAndToSet(providerList, Provider::getApplication);
+        return WebResult.success(ApplicationSet);
     }
 
 
