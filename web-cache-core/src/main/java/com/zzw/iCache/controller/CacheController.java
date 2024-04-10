@@ -90,7 +90,7 @@ public class CacheController {
         List<String> ipList = new ArrayList<>();
         //获取对象集合的url信息 并且将其信息截取 获取ip地址
         if(CollectionUtils.isNotEmpty(providerList)){
-            ipList = providerList.stream().map(Provider -> Provider.getAddress().substring(0,Provider.getAddress().indexOf(':'))).collect(Collectors.toList());
+            ipList = providerList.stream().map(Provider -> Provider.getAddress()).collect(Collectors.toList());
         }
         return WebResult.success(ipList);
     }
@@ -178,7 +178,7 @@ public class CacheController {
                 long count = facadeImpl.cacheSize(cacheName);
                 //Set<String> refreshNames = facadeImpl.getRefreshName(cacheName);
                 Set<String> refreshNames = new HashSet<>();
-                CacheInfoVo vo = new CacheInfoVo(provider.getAddress().substring(0,provider.getAddress().indexOf(':')), count, refreshNames);
+                CacheInfoVo vo = new CacheInfoVo(provider.getAddress(), count, refreshNames);
                 result.add(vo);
             }
 
