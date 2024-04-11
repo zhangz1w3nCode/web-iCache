@@ -30,4 +30,6 @@ public interface CacheMonitor {
     long cacheSize(String cacheName);
 
     Set<String> getRefreshName(String cacheName);
+
+    void refreshCache(String cacheName, String refreshName);
 }

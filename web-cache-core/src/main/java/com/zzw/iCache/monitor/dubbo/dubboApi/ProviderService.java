@@ -22,6 +22,11 @@ public class ProviderService {
         return SyncUtils.url2ProviderList(findProviderUrlByService(serviceName));
     }
 
+    public Provider findByService(String serviceName, String address) {
+        Provider provider = findByService(serviceName).stream().filter(p -> address.equals(p.getAddress())).findAny().orElse(null);
+        return provider;
+    }
+
     public List<String> findServicesByApplication(String application) {
         List<String> ret = new ArrayList<>();
 

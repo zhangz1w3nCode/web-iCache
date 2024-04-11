@@ -204,25 +204,32 @@ public class CacheController {
 //        return WebResult.success(result);
 //    }
 //
-//    @RequestMapping("refreshCache")
-//    public WebResult refreshCache(String application, String address, String cacheName, String refreshName){
-//        // 调用某一台机器的刷新器
-//        if(StringUtils.isNotBlank(address)) {
-//            CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, address, "");
-//            facadeImpl.refreshCache(cacheName, refreshName);
-//        }
-//
-//        List<CompletableFuture> futureList = new ArrayList<>();
-//        List<Provider> providers = providerService.findByService(CacheMonitor.class.getName());
-//        providers.stream().filter(p -> application.equalsIgnoreCase(p.getApplication())).forEach(p ->{
-//            futureList.add(CompletableFuture.runAsync(() -> {
-//                CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, p.getAddress(), "");
-//                facadeImpl.refreshCache(cacheName, refreshName);
-//            }, threadPoolTaskExecutor));
-//        });
-//
-//        CompletableFuture.allOf(futureList.toArray(new CompletableFuture[futureList.size()]));;
-//        return WebResult.success();
-//    }
+
+    //主动刷新缓存方法
+    @RequestMapping("refreshCache")
+    public WebResult refreshCache(String application, String address, String cacheName, String refreshName){
+        // 调用某一台机器的刷新器
+        if(StringUtils.isNotBlank(address)) {
+            CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, address, "");
+            facadeImpl.refreshCache(cacheName, refreshName);
+            return WebResult.success();
+        }
+
+
+        List<CompletableFuture> futureList = new ArrayList<>();
+
+        List<Provider> providers = providerService.findByService(CacheMonitor.class.getName());
+
+        providers.stream().filter(p -> application.equalsIgnoreCase(p.getApplication())).forEach(p ->{
+            futureList.add(CompletableFuture.runAsync(() -> {
+                CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, p.getAddress(), "");
+                facadeImpl.refreshCache(cacheName, refreshName);
+            }, threadPoolTaskExecutor));
+        });
+
+        CompletableFuture.allOf(futureList.toArray(new CompletableFuture[futureList.size()]));
+
+        return WebResult.success();
+    }
 
 }
