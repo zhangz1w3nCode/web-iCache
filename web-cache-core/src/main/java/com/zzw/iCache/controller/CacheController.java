@@ -6,22 +6,19 @@ import com.zzw.iCache.Utils.WebResult;
 
 import com.zzw.iCache.entity.vo.CacheDataVo;
 import com.zzw.iCache.entity.vo.CacheInfoVo;
-import com.zzw.iCache.entity.vo.CacheSnapshotVo;
-import com.zzw.iCache.monitor.dubbo.domain.Provider;
 import com.zzw.iCache.monitor.CacheMonitor;
+import com.zzw.iCache.monitor.dubbo.domain.Provider;
 import com.zzw.iCache.monitor.dubbo.dubboApi.ProviderService;
 import com.zzw.iCache.monitor.dubbo.dubboUtils.DubboGeneralizeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.common.utils.CollectionUtils;
-import org.apache.dubbo.registry.Registry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -161,17 +158,17 @@ public class CacheController {
     }
 
     /**
-     * @param application 业务方应用名称：biz-product
+     * @param address 业务方应用名称：biz-product
      * @param cacheName   缓存名称：productCache
      * @return 返回根据业务名称和缓存名称 查询这个服务所有机器的缓存数量
      */
     @GetMapping("queryCacheInfo")
-    public WebResult<List<CacheInfoVo>> queryCacheInfo(String application, String cacheName) {
+    public WebResult<List<CacheInfoVo>> queryCacheInfo(String address, String cacheName) {
         List<CacheInfoVo> result = new ArrayList<>();
 
         for (Provider provider : providerService.findByService(CacheMonitor.class.getName())) {
 
-            if (provider.getApplication().equalsIgnoreCase(application)) {
+            if (provider.getAddress().equalsIgnoreCase(address)) {
 
                 CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, provider.getAddress(), "");
                 
@@ -185,6 +182,29 @@ public class CacheController {
         }
 
         return WebResult.success(result);
+    }
+
+
+    /**
+     * @param address 业务方ip：biz-product
+     * @param cacheName   缓存名称：productCache
+     * @return 计算当前缓存大小 占该机器内存的百分比
+     */
+    @GetMapping("queryMemoryRate")
+    public WebResult<Double> queryMemoryRate(String address, String cacheName) {
+        CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, address, "");
+        return WebResult.success(facadeImpl.calculateMemoryUsage(cacheName));
+    }
+
+    /**
+     * @param address 业务方ip：biz-product
+     * @param cacheName   缓存名称：productCache
+     * @return 计算当前缓存关联的所有刷新器名称
+     */
+    @GetMapping("refreshNames")
+    public WebResult<Set<String>> refreshNames(String address, String cacheName) {
+        CacheMonitor facadeImpl = DubboGeneralizeUtils.getFacadeImpl(CacheMonitor.class, address, "");
+        return WebResult.success(facadeImpl.refreshNames(cacheName));
     }
 
 //    @RequestMapping("queryCacheSnapshot")

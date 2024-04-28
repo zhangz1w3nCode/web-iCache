@@ -29,7 +29,9 @@ public interface CacheMonitor {
      */
     long cacheSize(String cacheName);
 
-    Set<String> getRefreshName(String cacheName);
 
     void refreshCache(String cacheName, String refreshName);
+
+    Double calculateMemoryUsage(String cacheName);
+    Set<String> refreshNames(String cacheName);
 }
