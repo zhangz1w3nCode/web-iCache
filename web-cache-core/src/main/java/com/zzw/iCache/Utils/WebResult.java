@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author pw
+ * @author zhangyang
  * @version : DataResult.java,v 0.1 2022年04月23日 17:37
  */
 @Data
